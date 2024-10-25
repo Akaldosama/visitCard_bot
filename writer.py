@@ -2,8 +2,8 @@ from PIL import Image, ImageFont, ImageDraw
 
 
 async def writer_func(fullname, job, phone, email, site, address, company):
-    img1 = Image.open(r'media/img.png')
-    img2 = Image.open(r'media/img_1.png')
+    img1 = Image.open(r'img.png')
+    img2 = Image.open(r'img_1.png')
 
     # draw fg
     draw = ImageDraw.Draw(img1)
