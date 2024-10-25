@@ -20,6 +20,7 @@ language = ReplyKeyboardMarkup(resize_keyboard=True)
 language.add('Russian', 'English')
 
 class UserState(StatesGroup):
+    language = State()
     fullname = State()
     company = State()
     phone = State()
@@ -27,6 +28,31 @@ class UserState(StatesGroup):
     site = State()
     address = State()
     job = State()
+
+@dp.message_handler(commands=['start'])
+async def send_welcome(message: types.Message):
+    await UserState.language.set()
+    await message.answer('Выберите язык: ', reply_markup=language)
+
+
+@dp.errors_handler()
+async def my_error_handler(update, exception):
+    logging.exception("An error occurred: %s", exception)
+    return True
+
+
+@dp.message_handler(state=UserState.language)
+async def choose_language(message: types.Message, state: FSMContext):
+    if message.text not in ['Russian', 'English']:
+        await message.answer('Пожалуйста, выберите язык!')
+        return
+
+    async with state.proxy() as data:
+        data['language'] = message.text
+
+    await UserState.next()
+    welcome_msg = "Добро пожаловать в нашего бота! Введите изображение вашего логотипа: " if data['language'] == 'Russian' else "Welcome to our bot! Enter your logo picture: "
+    await message.answer(welcome_msg)
 
 @dp.message_handler(state=UserState.fullname)
 async def get_fullname(message: types.Message, state: FSMContext):
