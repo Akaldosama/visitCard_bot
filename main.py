@@ -60,8 +60,7 @@ async def get_fullname(message: types.Message, state: FSMContext):
         data['fullname'] = message.text
 
     await UserState.next()
-    await message.answer('Введите название вашей компании: ' if data.get('language',
-                                                                         'English') == 'Russian' else 'Enter your company name: ')
+    await message.answer('Введите название вашей компании: ' if data['language'] == 'Russian' else 'Enter your company name: ')
 
 
 @dp.message_handler(state=UserState.company)
@@ -71,7 +70,7 @@ async def get_company(message: types.Message, state: FSMContext):
 
     await UserState.next()
     await message.answer(
-        'Введите ваш номер телефона: ' if data.get('language', 'English') == 'Russian' else 'Enter your phone number: ')
+        'Введите ваш номер телефона: ' if data['language'] == 'Russian' else 'Enter your phone number: ')
 
 
 @dp.message_handler(state=UserState.phone)
@@ -81,7 +80,7 @@ async def get_phone(message: types.Message, state: FSMContext):
 
     await UserState.next()
     await message.answer(
-        'Введите вашу электронная почта: ' if data.get('language', 'English') == 'Russian' else 'Enter your email: ')
+        'Введите вашу электронная почта: ' if data['language'] == 'Russian' else 'Enter your email: ')
 
 
 @dp.message_handler(state=UserState.email)
@@ -90,7 +89,7 @@ async def get_email(message: types.Message, state: FSMContext):
         data['email'] = message.text
 
     await UserState.next()
-    await message.answer('Введите вашу сайт: ' if data.get('language', 'English') == 'Russian' else 'Enter your site: ')
+    await message.answer('Введите вашу сайт: ' if data['language'] == 'Russian' else 'Enter your site: ')
 
 
 @dp.message_handler(state=UserState.site)
@@ -100,7 +99,7 @@ async def get_site(message: types.Message, state: FSMContext):
 
     await UserState.next()
     await message.answer(
-        'Введите вашу адрес: ' if data.get('language', 'English') == 'Russian' else 'Enter your address: ')
+        'Введите вашу адрес: ' if data['language'] == 'Russian' else 'Enter your address: ')
 
 
 @dp.message_handler(state=UserState.address)
@@ -109,7 +108,7 @@ async def get_address(message: types.Message, state: FSMContext):
         data['address'] = message.text
 
     await UserState.next()
-    await message.answer('Введите вашу работу: ' if data.get('language', 'English') == 'Russian' else 'Enter your job: ')
+    await message.answer('Введите вашу работу: ' if data['language'] == 'Russian' else 'Enter your job: ')
 
 
 @dp.message_handler(state=UserState.job)
