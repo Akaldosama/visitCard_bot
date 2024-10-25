@@ -2,8 +2,8 @@ from PIL import Image, ImageFont, ImageDraw
 
 
 def writer_func(fullname, job, phone, email, site, address, company):
-    img1 = Image.open(r'img.png')
-    img2 = Image.open(r'img_1.png')
+    img1 = Image.open(r'media/img.png')
+    img2 = Image.open(r'media/img_1.png')
 
     # draw fg
     draw = ImageDraw.Draw(img1)
@@ -67,7 +67,7 @@ def writer_func(fullname, job, phone, email, site, address, company):
     ),
 
     # img.show()
-    img1.save(f'{fullname}1.png')
-    img2.save(f'{fullname}2.png')
+    img1.save(f'media/{fullname}1.png')
+    img2.save(f'media/{fullname}2.png')
     print('Successfully is cut and saved')
 
