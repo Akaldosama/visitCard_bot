@@ -1,7 +1,7 @@
 from PIL import Image, ImageFont, ImageDraw
 
 
-def writer_func(fullname, job, phone, email, site, address, company):
+async def writer_func(fullname, job, phone, email, site, address, company):
     img1 = Image.open(r'media/img.png')
     img2 = Image.open(r'media/img_1.png')
 

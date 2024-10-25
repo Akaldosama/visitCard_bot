@@ -218,7 +218,7 @@ async def get_address(message: types.Message, state: FSMContext):
         data['address'] = message.text
 
     await UserState.next()
-    await message.answer('Введите вашу job: ' if data.get('language', 'English') == 'Russian' else 'Enter your job: ')
+    await message.answer('Введите вашу работу: ' if data.get('language', 'English') == 'Russian' else 'Enter your job: ')
 
 
 @dp.message_handler(state=UserState.job)
@@ -227,7 +227,7 @@ async def get_job(message: types.Message, state: FSMContext):
         data['job'] = message.text
 
         # Call the writer function to generate images
-        writer_func(data['fullname'], data['job'], data['phone'], data['email'], data['site'], data['address'], data['company'])
+        await writer_func(data['fullname'], data['job'], data['phone'], data['email'], data['site'], data['address'], data['company'])
 
         # Sending the first image
         with open(f'media/{data["fullname"]}1.png', 'rb') as img_file1:
