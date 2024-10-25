@@ -13,7 +13,7 @@ async def writer_func(fullname, job, phone, email, site, address, company):
     print('started')
 
     # image size fg
-    font1 = ImageFont.truetype("regular.ttf", 85)
+    font1 = ImageFont.truetype("regular.ttf", 86)
     # image size fg
     font2 = ImageFont.truetype("regular.ttf", 35)
 

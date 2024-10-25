@@ -140,7 +140,7 @@ from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from aiogram.dispatcher.filters.state import StatesGroup, State
 from aiogram.dispatcher import FSMContext
 from aiogram.types import ReplyKeyboardMarkup
-from writer import writer_func  # Make sure this function is async
+from writer import writer_func
 
 # Set up logging
 logging.basicConfig(level=logging.INFO)
@@ -240,9 +240,8 @@ async def get_job(message: types.Message, state: FSMContext):
         thank_you_msg = 'Спасибо за информацию!' if data['language'] == 'Russian' else 'Thank you for your information!'
         await message.answer(thank_you_msg)
 
-        # Optionally delete the images after sending
-        os.remove(f"media/{data['fullname']}1.png")
-        os.remove(f"media/{data['fullname']}2.png")
+        # os.remove(f"media/{data['fullname']}1.png")
+        # os.remove(f"media/{data['fullname']}2.png")
 
     await state.finish()
 
