@@ -2,8 +2,8 @@ from PIL import Image, ImageFont, ImageDraw
 
 
 async def writer_func(fullname, job, phone, email, site, address, company):
-    img1 = Image.open(r'media/img.png')
-    img2 = Image.open(r'media/img_1.png')
+    img1 = Image.open(r'media/img_1.png')
+    img2 = Image.open(r'media/img.png')
 
     # draw fg
     draw = ImageDraw.Draw(img1)
@@ -13,9 +13,9 @@ async def writer_func(fullname, job, phone, email, site, address, company):
     print('started')
 
     # image size fg
-    font1 = ImageFont.truetype("regular.ttf", 86)
+    font1 = ImageFont.truetype("font.ttf", 86)
     # image size fg
-    font2 = ImageFont.truetype("regular.ttf", 35)
+    font2 = ImageFont.truetype("font.ttf", 35)
 
     # set fullname
     draw.text(
@@ -33,28 +33,28 @@ async def writer_func(fullname, job, phone, email, site, address, company):
 
     # set phone
     draw.text(
-        (120, 391),
+        (120, 400),
         phone.title(), fill=(222, 177, 72, 148),
         font=font2,
     ),
 
     # set email
     draw.text(
-        (120, 437),
+        (120, 445),
         email.lower(), fill=(222, 177, 72, 148),
         font=font2,
     ),
 
     # set site
     draw.text(
-        (120, 485),
+        (120, 490),
         site.lower(), fill=(222, 177, 72, 148),
         font=font2,
     ),
 
     # set address
     draw.text(
-        (120, 534),
+        (120, 540),
         address.title(), fill=(222, 177, 72, 148),
         font=font2,
     ),
@@ -63,7 +63,7 @@ async def writer_func(fullname, job, phone, email, site, address, company):
     draw2.text(
         (55, 480),
         company.title(), fill=(222, 177, 72, 148),
-        font=ImageFont.truetype("regular.ttf", 60),
+        font=ImageFont.truetype("font.ttf", 60),
     ),
 
     # img.show()

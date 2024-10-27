@@ -11,7 +11,7 @@ from writer import writer_func
 logging.basicConfig(level=logging.INFO)
 
 # Initialize bot and dispatcher
-bot = Bot('7883076072:AAFMs_3tAieTRF7Aw_eP4UiFEmP_waROzYM')
+bot = Bot('7882446823:AAG0A_7LepL2DQKXoCFRuK2IefnBZpOeRjM')
 storage = MemoryStorage()
 dp = Dispatcher(bot, storage=storage)
 
@@ -51,7 +51,7 @@ async def choose_language(message: types.Message, state: FSMContext):
         data['language'] = message.text
 
     await UserState.next()
-    welcome_msg = "Добро пожаловать в нашего бота! Введите изображение вашего логотипа: " if data['language'] == 'Russian' else "Welcome to our bot! Enter your logo picture: "
+    welcome_msg = "Добро пожаловать в нашего бота! Введите свое полное имя: " if data['language'] == 'Russian' else "Welcome to our bot! Enter your fullname "
     await message.answer(welcome_msg)
 
 @dp.message_handler(state=UserState.fullname)
