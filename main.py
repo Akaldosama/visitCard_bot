@@ -11,7 +11,7 @@ from writer import writer_func
 logging.basicConfig(level=logging.INFO)
 
 # Initialize bot and dispatcher
-bot = Bot('7882446823:AAG0A_7LepL2DQKXoCFRuK2IefnBZpOeRjM')
+bot = Bot('7883076072:AAFMs_3tAieTRF7Aw_eP4UiFEmP_waROzYM')
 storage = MemoryStorage()
 dp = Dispatcher(bot, storage=storage)
 
